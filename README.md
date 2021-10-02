@@ -1,6 +1,6 @@
-# JanutMap
+# JauntMap
 
-JanutMap
+JauntMap
 
 # 首次啟動
 
