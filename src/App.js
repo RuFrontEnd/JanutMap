@@ -10,6 +10,7 @@ import {
 
 // import Navbar from "components/navBar/NavBar";
 // import Footer from "components/footer/Footer";
+import SignIn from "pages/SignIn";
 // import HomePage from "pages/homePage/HomePage";
 
 // 引入 所有人的總元件
@@ -47,21 +48,7 @@ function App() {
           <Switch>
             {/* 首頁 */}
             <Route exact path="/">
-              {/* <HomePage
-                takeOrNot={takeOrNot}
-                setTakeOrNot={setTakeOrNot}
-                selectDate={selectDate}
-                setSelectDate={setSelectDate}
-                slecteTime={slecteTime}
-                setSelectTime={setSelectTime}
-                setShowBar={setShowBar}
-                county={county}
-                setCounty={setCounty}
-                township={township}
-                setTownship={setTownship}
-                address={address}
-                setAddress={setAddress}
-              /> */}
+              <SignIn />
             </Route>
           </Switch>
         </Suspense>
