@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components/macro'
+import React from "react";
+import styled from "styled-components/macro";
 
-function Template() {
+const Template = () => {
   return <section></section>;
-}
+};
 
 export default Template;
