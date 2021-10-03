@@ -27,7 +27,9 @@ const Hint = styled.p`
   font-size: 18px;
   margin-bottom: 90px;
   max-width: 252px;
+  line-height: 27px;
   text-align: center;
+  opacity: 0.6;
 `;
 
 const getLocationButtonStyle = {
