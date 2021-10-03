@@ -7,8 +7,9 @@ import {
   textColor,
   notoSans,
 } from "variable/variable";
+import Radium from "radium";
 
-const Container = styled.button`
+const Container = Radium(styled.button`
   background: ${shallowMainColor};
   box-shadow: 0px 2px 8px 0px ${shadowColor},
     -3px -2px 2px 0px ${lightReceivingColor};
@@ -17,7 +18,7 @@ const Container = styled.button`
   margin: ${(props) => props.margin};
   border-radius: ${(props) => (props.sharpRadius ? "8px" : "10px")};
   cursor: pointer;
-`;
+`);
 
 const Wrap = styled.div`
   display: flex;
@@ -39,21 +40,15 @@ const Text = styled.p`
 const JauntButton = (props) => {
   const {
     icon,
-    width,
-    height,
-    margin,
+    style,
     sharpRadius = true,
     textColour,
     text = "text",
+    onClick,
   } = props;
 
   return (
-    <Container
-      width={width}
-      height={height}
-      sharpRadius={sharpRadius}
-      margin={margin}
-    >
+    <Container style={style} sharpRadius={sharpRadius} onClick={onClick}>
       <Wrap>
         <Icon src={icon} />
         <Text color={textColour}>{text}</Text>

@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { withRouter } from "react-router-dom";
+import Radium from "radium";
 import { placeholderColor } from "variable/variable";
 import logo from "assets/logo.svg";
 import GoolgeLogo from "assets/google-logo.svg";
@@ -21,7 +23,21 @@ const Logo = styled.img`
   margin-bottom: 130px;
 `;
 
-const SignIn = () => {
+const googleSignInButtonStyle = {
+  width: "385px",
+  height: "60px",
+  marginBottom: "24px",
+};
+
+const visitorSignInButtonStyle = {
+  width: "385px",
+  height: "60px",
+  marginBottom: "24px",
+};
+
+const SignIn = (props) => {
+  const { history } = props;
+
   return (
     <FullScreen>
       <Background>
@@ -30,17 +46,17 @@ const SignIn = () => {
           <JauntButton
             icon={GoolgeLogo}
             text={"Google 登入"}
-            width={"385px"}
-            height={"60px"}
-            margin={"0px 0px 24px 0px"}
+            style={googleSignInButtonStyle}
             sharpRadius={false}
           />
           <JauntButton
             text={"訪客登入"}
-            width={"385px"}
-            height={"60px"}
+            style={visitorSignInButtonStyle}
             sharpRadius={false}
             textColour={placeholderColor}
+            onClick={() => {
+              history.push("/gpsPostion");
+            }}
           />
         </Container>
       </Background>
@@ -48,4 +64,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default withRouter(SignIn);

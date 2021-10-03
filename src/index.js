@@ -6,11 +6,14 @@ import * as serviceWorker from "serviceWorker";
 import App from "App";
 import { Provider } from "react-redux";
 import store from "redux/store";
+import { StyleRoot } from "radium";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <StyleRoot>
+        <App />
+      </StyleRoot>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
