@@ -18,6 +18,10 @@ const routes = [
     component: <SignIn />,
     path: "/",
   },
+  {
+    component: <GPSPostion />,
+    path: "/gpsPostion",
+  },
 ];
 
 // 引入 所有人的總元件
