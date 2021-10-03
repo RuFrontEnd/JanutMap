@@ -11,7 +11,14 @@ import {
 // import Navbar from "components/navBar/NavBar";
 // import Footer from "components/footer/Footer";
 import SignIn from "pages/SignIn";
-// import HomePage from "pages/homePage/HomePage";
+import GPSPostion from "pages/GPSPostion";
+
+const routes = [
+  {
+    component: <SignIn />,
+    path: "/",
+  },
+];
 
 // 引入 所有人的總元件
 // const page = lazy(() => import("pages/page/page"));
@@ -46,10 +53,11 @@ function App() {
         // fallback={<FallBack />}
         >
           <Switch>
-            {/* 首頁 */}
-            <Route exact path="/">
-              <SignIn />
-            </Route>
+            {routes.map((route) => (
+              <Route exact path={route.path}>
+                {route.component}
+              </Route>
+            ))}
           </Switch>
         </Suspense>
         {/* <Footer /> */}
