@@ -70,7 +70,9 @@ const GPSPostion = (props) => {
             style={getLocationButtonStyle}
             sharpRadius={false}
             textStyle={getLocationButtonTextStyle}
-            // onClick={}
+            onClick={() => {
+              history.push("/attractions");
+            }}
           />
         </Container>
       </Background>
