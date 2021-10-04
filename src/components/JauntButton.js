@@ -13,9 +13,6 @@ const ContainerStyledComponent = styled.button`
   background: ${shallowMainColor};
   box-shadow: 0px 2px 8px 0px ${shadowColor},
     -3px -2px 2px 0px ${lightReceivingColor};
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  margin: ${(props) => props.margin};
   border-radius: ${(props) => (props.sharpRadius ? "8px" : "10px")};
   cursor: pointer;
 `;
