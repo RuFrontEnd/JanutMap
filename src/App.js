@@ -12,6 +12,7 @@ import {
 // import Footer from "components/footer/Footer";
 import SignIn from "pages/SignIn";
 import GPSPostion from "pages/GPSPostion";
+import Attractions from "pages/Attractions";
 
 const routes = [
   {
@@ -21,6 +22,10 @@ const routes = [
   {
     component: <GPSPostion />,
     path: "/gpsPostion",
+  },
+  {
+    component: <Attractions />,
+    path: "/attractions",
   },
 ];
 
