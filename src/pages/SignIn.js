@@ -35,6 +35,10 @@ const visitorSignInButtonStyle = {
   marginBottom: "24px",
 };
 
+const visitorSignInButtonTextStyle = {
+  color: placeholderColor,
+};
+
 const SignIn = (props) => {
   const { history } = props;
 
@@ -53,7 +57,7 @@ const SignIn = (props) => {
             text={"訪客登入"}
             style={visitorSignInButtonStyle}
             sharpRadius={false}
-            textColour={placeholderColor}
+            textStyle={visitorSignInButtonTextStyle}
             onClick={() => {
               history.push("/gpsPostion");
             }}

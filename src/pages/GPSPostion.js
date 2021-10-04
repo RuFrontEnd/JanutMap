@@ -36,6 +36,13 @@ const getLocationButtonStyle = {
   width: "385px",
   height: "60px",
   marginBottom: "24px",
+  letterSpacing: "5px",
+};
+
+const getLocationButtonTextStyle = {
+  background: "linear-gradient(to bottom, #38D0B7 100%, #35B3EA 100%)",
+  webkitBackgroundClip: "text",
+  webkitTextFillColor: "transparent",
 };
 
 const GPSPostion = (props) => {
@@ -62,7 +69,7 @@ const GPSPostion = (props) => {
             text={"開啟定位"}
             style={getLocationButtonStyle}
             sharpRadius={false}
-            textColour={placeholderColor}
+            textStyle={getLocationButtonTextStyle}
             // onClick={}
           />
         </Container>
