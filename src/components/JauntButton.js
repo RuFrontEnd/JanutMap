@@ -28,7 +28,6 @@ const Wrap = styled.div`
 const Icon = styled.img`
   margin-right: 10px;
 `;
-
 const TextStyledComponent = styled.p`
   color: ${(props) => (props.color ? props.color : textColor)};
   font-family: ${notoSans};
@@ -51,7 +50,7 @@ const JauntButton = (props) => {
   return (
     <Container style={style} sharpRadius={sharpRadius} onClick={onClick}>
       <Wrap>
-        <Icon src={icon} />
+        <Icon src={icon}/>
         <Text style={textStyle}>{text}</Text>
       </Wrap>
     </Container>
