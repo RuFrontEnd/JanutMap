@@ -28,17 +28,15 @@ const Wrap = styled.div`
 const Icon = styled.img``;
 
 const JauntCircleButton = (props) => {
-  const {
-    icon,
-    style,
-    sharpRadius = true,
-    textStyle,
-    text = "text",
-    onClick,
-  } = props;
+  const { className, icon, style, sharpRadius = true, onClick } = props;
 
   return (
-    <Container style={style} sharpRadius={sharpRadius} onClick={onClick}>
+    <Container
+      className={className}
+      style={style}
+      sharpRadius={sharpRadius}
+      onClick={onClick}
+    >
       <Wrap>
         <Icon src={icon} />
       </Wrap>
