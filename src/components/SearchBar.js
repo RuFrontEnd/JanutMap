@@ -15,7 +15,7 @@ const Logo = styled.img`
 `;
 
 const Input = styled.input`
-border: none;
+  border: none;
   box-shadow: 0px 1px 4px ${inputShadowColor};
   box-sizing: border-box;
   padding: 11px 46px;
@@ -25,9 +25,10 @@ border: none;
   font-family: ${notoSans};
 `;
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+  const { className } = props;
   return (
-    <Container>
+    <Container className={className}>
       <Logo src={search} />
       <Input placeholder="輸入目的地、景點、活動..." />
     </Container>

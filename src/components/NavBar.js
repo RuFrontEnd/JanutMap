@@ -12,9 +12,10 @@ const NavBarStyle = {
   opacity: 0.8,
 };
 
-const NavBar = () => {
+const NavBar = (props) => {
+  const { className } = props;
   return (
-    <Space style={NavBarStyle}>
+    <Space style={NavBarStyle} className={className}>
       <Container>
         <Logo src={navBarLogo} />
         <Tools>

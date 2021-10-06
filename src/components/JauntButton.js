@@ -39,6 +39,7 @@ const Text = Radium(TextStyledComponent);
 
 const JauntButton = (props) => {
   const {
+    className,
     icon,
     style,
     sharpRadius = true,
@@ -48,9 +49,14 @@ const JauntButton = (props) => {
   } = props;
 
   return (
-    <Container style={style} sharpRadius={sharpRadius} onClick={onClick}>
+    <Container
+      className={className}
+      style={style}
+      sharpRadius={sharpRadius}
+      onClick={onClick}
+    >
       <Wrap>
-        <Icon src={icon}/>
+        <Icon src={icon} />
         <Text style={textStyle}>{text}</Text>
       </Wrap>
     </Container>
