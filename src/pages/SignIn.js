@@ -40,18 +40,12 @@ const visitorSignInButtonTextStyle = {
 };
 
 const responseGoogle = (response) => {
-  console.log('response',response);
+  console.log("response", response);
 };
 
 const SignIn = (props) => {
   const { history } = props;
-
-  const [isGoogleSignIn, setIsGoogleSignIn] = useState(false);
-
-  const redirectUri = (path) => {
-    history.push(path);
-  };
-
+  
   return (
     <FullScreen>
       <Background>
@@ -61,12 +55,6 @@ const SignIn = (props) => {
             clientId="402772561326-jtrfrc8doklkfoikli9h25gbmdaaf4ff.apps.googleusercontent.com"
             render={(renderProps) => (
               <>
-                {/* <button
-                  onClick={renderProps.onClick}
-                  disabled={renderProps.disabled}
-                >
-                  This is my custom Google button
-                </button> */}
                 <JauntButton
                   onClick={renderProps.onClick}
                   disabled={renderProps.disabled}
@@ -79,19 +67,11 @@ const SignIn = (props) => {
             )}
             buttonText="Login"
             onSuccess={() => {
-              redirectUri("/gpsPostion");
+              history.push("/gpsPostion");
             }}
             onFailure={responseGoogle}
             cookiePolicy={"single_host_origin"}
           />
-          {/* <JauntButton
-            onClick={renderProps.onClick}
-            disabled={renderProps.disabled}
-            icon={GoolgeLogo}
-            text={"Google 登入"}
-            style={googleSignInButtonStyle}
-            sharpRadius={false}
-          /> */}
           <JauntButton
             text={"訪客登入"}
             style={visitorSignInButtonStyle}
