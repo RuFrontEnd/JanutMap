@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components/macro";
-import search from "assets/search.svg";
-import { inputShadowColor, notoSans } from "variable/variable";
+import { ReactComponent as SearchRef } from "assets/placeholder-search.svg";
+import {
+  inputShadowColor,
+  placeholderColor,
+  notoSans,
+} from "variable/variable";
 
 const Container = styled.section`
   position: relative;
@@ -9,7 +13,7 @@ const Container = styled.section`
   align-items: center;
 `;
 
-const Logo = styled.img`
+const Search = styled(SearchRef)`
   position: absolute;
   left: 12.5px;
 `;
@@ -29,7 +33,7 @@ const SearchBar = (props) => {
   const { className } = props;
   return (
     <Container className={className}>
-      <Logo src={search} />
+      <Search />
       <Input placeholder="輸入目的地、景點、活動..." />
     </Container>
   );

@@ -4,14 +4,17 @@ import {
   shallowMainColor,
   lightReceivingColor,
   shadowColor,
-  textColor,
-  notoSans,
+  selectedColor,
+  selectedShadowColor,
 } from "variable/variable";
 import Radium from "radium";
 
 const ContainerStyledComponent = styled.button`
-  background: ${shallowMainColor};
-  box-shadow: -2px -2px 1px ${lightReceivingColor}, 0px 0px 5px ${shadowColor};
+  background: ${(props) => (props.selected ? selectedColor : shallowMainColor)};
+  box-shadow: ${(props) =>
+    props.selected
+      ? selectedShadowColor
+      : `-2px -2px 1px ${lightReceivingColor}, 0px 0px 5px ${shadowColor}`};
   border-radius: 50%;
   cursor: pointer;
   padding: 10px;
@@ -28,7 +31,15 @@ const Wrap = styled.div`
 const Icon = styled.img``;
 
 const JauntCircleButton = (props) => {
-  const { className, icon, style, sharpRadius = true, onClick } = props;
+  const {
+    className,
+    icon,
+    style,
+    sharpRadius = true,
+    onClick,
+    selected,
+    children,
+  } = props;
 
   return (
     <Container
@@ -36,9 +47,11 @@ const JauntCircleButton = (props) => {
       style={style}
       sharpRadius={sharpRadius}
       onClick={onClick}
+      selected={selected}
     >
       <Wrap>
-        <Icon src={icon} />
+        {icon && <Icon src={icon} />}
+        {children}
       </Wrap>
     </Container>
   );

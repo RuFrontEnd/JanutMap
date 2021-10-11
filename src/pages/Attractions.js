@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components/macro";
 import NavBar from "components/NavBar";
 
-const Container = styled.section``;
-
 const Attractions = () => {
   return (
     <Container>
@@ -11,5 +9,7 @@ const Attractions = () => {
     </Container>
   );
 };
+
+const Container = styled.section``;
 
 export default Attractions;
