@@ -46,6 +46,7 @@ const JauntButton = (props) => {
     textStyle,
     text = "text",
     onClick,
+    disabled,
   } = props;
 
   return (
@@ -54,6 +55,7 @@ const JauntButton = (props) => {
       style={style}
       sharpRadius={sharpRadius}
       onClick={onClick}
+      disabled={disabled}
     >
       <Wrap>
         <Icon src={icon} />

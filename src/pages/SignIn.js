@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components/macro";
 import { withRouter } from "react-router-dom";
 import { placeholderColor } from "variable/variable";
@@ -7,6 +7,7 @@ import GoolgeLogo from "assets/google-logo.svg";
 import Background from "layouts/Background";
 import FullScreen from "layouts/FullScreen";
 import JauntButton from "components/JauntButton";
+import { GoogleLogin } from "react-google-login";
 
 const Container = styled.div`
   height: 100%;
@@ -38,20 +39,59 @@ const visitorSignInButtonTextStyle = {
   color: placeholderColor,
 };
 
+const responseGoogle = (response) => {
+  console.log('response',response);
+};
+
 const SignIn = (props) => {
   const { history } = props;
+
+  const [isGoogleSignIn, setIsGoogleSignIn] = useState(false);
+
+  const redirectUri = (path) => {
+    history.push(path);
+  };
 
   return (
     <FullScreen>
       <Background>
         <Container>
           <Logo src={logo}></Logo>
-          <JauntButton
+          <GoogleLogin
+            clientId="402772561326-jtrfrc8doklkfoikli9h25gbmdaaf4ff.apps.googleusercontent.com"
+            render={(renderProps) => (
+              <>
+                {/* <button
+                  onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}
+                >
+                  This is my custom Google button
+                </button> */}
+                <JauntButton
+                  onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}
+                  icon={GoolgeLogo}
+                  text={"Google 登入"}
+                  style={googleSignInButtonStyle}
+                  sharpRadius={false}
+                />
+              </>
+            )}
+            buttonText="Login"
+            onSuccess={() => {
+              redirectUri("/gpsPostion");
+            }}
+            onFailure={responseGoogle}
+            cookiePolicy={"single_host_origin"}
+          />
+          {/* <JauntButton
+            onClick={renderProps.onClick}
+            disabled={renderProps.disabled}
             icon={GoolgeLogo}
             text={"Google 登入"}
             style={googleSignInButtonStyle}
             sharpRadius={false}
-          />
+          /> */}
           <JauntButton
             text={"訪客登入"}
             style={visitorSignInButtonStyle}
