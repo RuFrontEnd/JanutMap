@@ -27,12 +27,16 @@ const Attractions = () => {
         <NavBar />
         <SeperateBar style={SeperateBarStyle} />
         <Space>
-          {buttonSettings.map((buttonSetting) => (
-            <TotalButton
-              text={buttonSetting.text}
-              textStyle={TotalButtonTextStyle}
-            />
-          ))}
+          <Container>
+            <OptionButtons>
+              {buttonSettings.map((buttonSetting) => (
+                <OptionButton
+                  text={buttonSetting.text}
+                  textStyle={OptionButtonTextStyle}
+                />
+              ))}
+            </OptionButtons>
+          </Container>
         </Space>
       </Background>
     </FullScreen>
@@ -40,15 +44,18 @@ const Attractions = () => {
 };
 
 const Container = styled.section`
-  /* height: 100vh; */
+  display: grid;
+  justify-content: center;
 `;
 
 const Wrap = styled.div`
   background-color: red;
-  /* height: 100%; */
 `;
 
-const TotalButton = styled(JauntButton)`
+const OptionButtons = styled.div`
+`;
+
+const OptionButton = styled(JauntButton)`
   padding: 7.5px 38.25px;
   line-height: 21px;
   margin: 0px 6.5px;
@@ -58,7 +65,7 @@ const SeperateBarStyle = {
   marginBottom: "38px",
 };
 
-const TotalButtonTextStyle = {
+const OptionButtonTextStyle = {
   fontSize: "14px",
   fontFamily: `${notoSans}`,
   color: optionButtonColor,
