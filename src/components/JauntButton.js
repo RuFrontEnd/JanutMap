@@ -9,6 +9,34 @@ import {
 } from "variable/variable";
 import Radium from "radium";
 
+const JauntButton = (props) => {
+  const {
+    className,
+    icon = false,
+    style,
+    sharpRadius = true,
+    textStyle,
+    text = "text",
+    onClick,
+    disabled,
+  } = props;
+
+  return (
+    <Container
+      className={className}
+      style={style}
+      sharpRadius={sharpRadius}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      <Wrap>
+        {icon && <Icon src={icon} />}
+        <Text style={textStyle}>{text}</Text>
+      </Wrap>
+    </Container>
+  );
+};
+
 const ContainerStyledComponent = styled.button`
   background: ${shallowMainColor};
   box-shadow: 0px 2px 8px 0px ${shadowColor},
@@ -36,33 +64,5 @@ const TextStyledComponent = styled.p`
 `;
 
 const Text = Radium(TextStyledComponent);
-
-const JauntButton = (props) => {
-  const {
-    className,
-    icon,
-    style,
-    sharpRadius = true,
-    textStyle,
-    text = "text",
-    onClick,
-    disabled,
-  } = props;
-
-  return (
-    <Container
-      className={className}
-      style={style}
-      sharpRadius={sharpRadius}
-      onClick={onClick}
-      disabled={disabled}
-    >
-      <Wrap>
-        <Icon src={icon} />
-        <Text style={textStyle}>{text}</Text>
-      </Wrap>
-    </Container>
-  );
-};
 
 export default JauntButton;

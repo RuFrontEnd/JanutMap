@@ -5,15 +5,19 @@ import {
   shadowColor,
   seperateBarColor,
 } from "variable/variable";
+import Radium from "radium";
 
-const SeperateBar = () => {
-  return <Container />;
+const SeperateBar = (props) => {
+  const { style } = props;
+  return <Container style={style} />;
 };
 
-const Container = styled.section`
+const ContainerStyledComponent = styled.section`
   height: 12px;
   background-color: ${seperateBarColor};
   box-shadow: 0px -2px 0px ${lightReceivingColor}, 0px 2px 12px ${shadowColor};
 `;
+
+const Container = Radium(ContainerStyledComponent);
 
 export default SeperateBar;

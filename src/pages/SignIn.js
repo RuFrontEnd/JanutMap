@@ -9,43 +9,9 @@ import FullScreen from "layouts/FullScreen";
 import JauntButton from "components/JauntButton";
 import { GoogleLogin } from "react-google-login";
 
-const Container = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Logo = styled.img`
-  width: 205px;
-  height: 135px;
-  margin-bottom: 130px;
-`;
-
-const googleSignInButtonStyle = {
-  width: "385px",
-  height: "60px",
-  marginBottom: "24px",
-};
-
-const visitorSignInButtonStyle = {
-  width: "385px",
-  height: "60px",
-  marginBottom: "24px",
-};
-
-const visitorSignInButtonTextStyle = {
-  color: placeholderColor,
-};
-
-const responseGoogle = (response) => {
-  console.log("response", response);
-};
-
 const SignIn = (props) => {
   const { history } = props;
-  
+
   return (
     <FullScreen>
       <Background>
@@ -85,6 +51,40 @@ const SignIn = (props) => {
       </Background>
     </FullScreen>
   );
+};
+
+const Container = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Logo = styled.img`
+  width: 205px;
+  height: 135px;
+  margin-bottom: 130px;
+`;
+
+const googleSignInButtonStyle = {
+  width: "385px",
+  height: "60px",
+  marginBottom: "24px",
+};
+
+const visitorSignInButtonStyle = {
+  width: "385px",
+  height: "60px",
+  marginBottom: "24px",
+};
+
+const visitorSignInButtonTextStyle = {
+  color: placeholderColor,
+};
+
+const responseGoogle = (response) => {
+  console.log("response", response);
 };
 
 export default withRouter(SignIn);
