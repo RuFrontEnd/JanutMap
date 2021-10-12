@@ -9,4 +9,5 @@ export const navBarColor = "#EAEBED";
 export const selectedColor =
   "linear-gradient(180deg, #38D0B7 0%, #35B3EA 100%);";
 export const selectedShadowColor = "0px 2px 5px #C0C7D0;";
+export const seperateBarColor = "#F1F2F2";
 export const notoSans = '"Noto Sans", sans-serif';
