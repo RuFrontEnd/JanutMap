@@ -18,7 +18,8 @@ const ActivityCard = () => {
         <Location>
           <Icon />
           <Place>中正區</Place>
-          <Distance>1.1km</Distance>
+          <Distance>1.1</Distance>
+          <Unit>km</Unit>
         </Location>
       </Wrap>
     </Container>
@@ -70,6 +71,7 @@ const Location = styled.div`
   border-radius: 6px;
   width: 100%;
   box-sizing: border-box;
+  justify-content: space-between;
 `;
 
 const Icon = styled(Subtract)`
@@ -83,3 +85,5 @@ const Place = styled.div`
 `;
 
 const Distance = styled(Place)``;
+
+const Unit = styled(Place)``;
