@@ -7,10 +7,11 @@ import {
 } from "variable/variable";
 import FullScreen from "layouts/FullScreen";
 import Background from "layouts/Background";
+import Space from "layouts/Space";
 import NavBar from "components/NavBar";
 import SeperateBar from "components/SeperateBar";
 import JauntButton from "components/JauntButton";
-import Space from "layouts/Space";
+import ActivityCard from "components/ActivityCard";
 
 const buttonSettings = [
   { text: "全部" },
@@ -36,6 +37,10 @@ const Attractions = () => {
                 />
               ))}
             </OptionButtons>
+            <ActivityCards>
+              <ActivityCard />
+              <ActivityCard />
+            </ActivityCards>
           </Container>
         </Space>
       </Background>
@@ -52,13 +57,16 @@ const Wrap = styled.div`
   background-color: red;
 `;
 
-const OptionButtons = styled.div`
-`;
+const OptionButtons = styled.div``;
 
 const OptionButton = styled(JauntButton)`
   padding: 7.5px 38.25px;
   line-height: 21px;
   margin: 0px 6.5px;
+`;
+
+const ActivityCards = styled.div`
+  display: flex;
 `;
 
 const SeperateBarStyle = {
