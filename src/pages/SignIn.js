@@ -5,7 +5,6 @@ import { placeholderColor } from "variable/variable";
 import logo from "assets/logo.svg";
 import GoolgeLogo from "assets/google-logo.svg";
 import Background from "layouts/Background";
-import FullScreen from "layouts/FullScreen";
 import JauntButton from "components/JauntButton";
 import { GoogleLogin } from "react-google-login";
 
@@ -13,43 +12,41 @@ const SignIn = (props) => {
   const { history } = props;
 
   return (
-    <FullScreen>
-      <Background>
-        <Container>
-          <Logo src={logo}></Logo>
-          <GoogleLogin
-            clientId="402772561326-jtrfrc8doklkfoikli9h25gbmdaaf4ff.apps.googleusercontent.com"
-            render={(renderProps) => (
-              <>
-                <JauntButton
-                  onClick={renderProps.onClick}
-                  disabled={renderProps.disabled}
-                  icon={GoolgeLogo}
-                  text={"Google 登入"}
-                  style={googleSignInButtonStyle}
-                  sharpRadius={false}
-                />
-              </>
-            )}
-            buttonText="Login"
-            onSuccess={() => {
-              history.push("/gpsPostion");
-            }}
-            onFailure={responseGoogle}
-            cookiePolicy={"single_host_origin"}
-          />
-          <JauntButton
-            text={"訪客登入"}
-            style={visitorSignInButtonStyle}
-            sharpRadius={false}
-            textStyle={visitorSignInButtonTextStyle}
-            onClick={() => {
-              history.push("/gpsPostion");
-            }}
-          />
-        </Container>
-      </Background>
-    </FullScreen>
+    <Background>
+      <Container>
+        <Logo src={logo}></Logo>
+        <GoogleLogin
+          clientId="402772561326-jtrfrc8doklkfoikli9h25gbmdaaf4ff.apps.googleusercontent.com"
+          render={(renderProps) => (
+            <>
+              <JauntButton
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}
+                icon={GoolgeLogo}
+                text={"Google 登入"}
+                style={googleSignInButtonStyle}
+                sharpRadius={false}
+              />
+            </>
+          )}
+          buttonText="Login"
+          onSuccess={() => {
+            history.push("/gpsPostion");
+          }}
+          onFailure={responseGoogle}
+          cookiePolicy={"single_host_origin"}
+        />
+        <JauntButton
+          text={"訪客登入"}
+          style={visitorSignInButtonStyle}
+          sharpRadius={false}
+          textStyle={visitorSignInButtonTextStyle}
+          onClick={() => {
+            history.push("/gpsPostion");
+          }}
+        />
+      </Container>
+    </Background>
   );
 };
 

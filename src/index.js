@@ -11,7 +11,7 @@ import { StyleRoot } from "radium";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <StyleRoot>
+      <StyleRoot id="styleRoot">
         <App />
       </StyleRoot>
     </Provider>

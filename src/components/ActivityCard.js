@@ -54,6 +54,7 @@ const Text = styled.div`
   font-size: 14px;
   color: ${optionButtonColor};
   line-height: 21px;
+  margin-bottom: 8px;
 `;
 
 const Price = styled.div`

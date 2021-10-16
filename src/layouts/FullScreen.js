@@ -4,7 +4,7 @@ import { mainColor } from "variable/variable";
 
 const Container = styled.section`
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `;
 
 const FullScreen = (props) => {

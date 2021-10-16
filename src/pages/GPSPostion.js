@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 import lottie from "lottie-web";
 import { placeholderColor, notoSans } from "variable/variable";
 import Background from "layouts/Background";
-import FullScreen from "layouts/FullScreen";
 import JauntButton from "components/JauntButton";
 import mapAnimation from "assets/map_animation.json";
 
@@ -23,23 +22,21 @@ const GPSPostion = (props) => {
   }, []);
 
   return (
-    <FullScreen>
-      <Background>
-        <Container>
-          <Lottie ref={$Lottie} />
-          <Hint> 請開啟定位，才能使用小旅行， 享有完整的使用體驗</Hint>
-          <JauntButton
-            text={"開啟定位"}
-            style={getLocationButtonStyle}
-            sharpRadius={false}
-            textStyle={getLocationButtonTextStyle}
-            onClick={() => {
-              history.push("/attractions");
-            }}
-          />
-        </Container>
-      </Background>
-    </FullScreen>
+    <Background>
+      <Container>
+        <Lottie ref={$Lottie} />
+        <Hint> 請開啟定位，才能使用小旅行， 享有完整的使用體驗</Hint>
+        <JauntButton
+          text={"開啟定位"}
+          style={getLocationButtonStyle}
+          sharpRadius={false}
+          textStyle={getLocationButtonTextStyle}
+          onClick={() => {
+            history.push("/attractions");
+          }}
+        />
+      </Container>
+    </Background>
   );
 };
 

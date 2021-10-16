@@ -3,9 +3,9 @@ import styled from "styled-components/macro";
 import {
   placeholderColor,
   optionButtonColor,
+  textColor,
   notoSans,
 } from "variable/variable";
-import FullScreen from "layouts/FullScreen";
 import Background from "layouts/Background";
 import Space from "layouts/Space";
 import Layout from "layouts/Layout";
@@ -24,48 +24,48 @@ const buttonSettings = [
 
 const Attractions = () => {
   return (
-    <FullScreen>
-      <Background>
-        <NavBar />
-        <SeperateBar style={SeperateBarStyle} />
-        <Space>
-          <Layout>
-            <Container>
-              <OptionButtons>
-                {buttonSettings.map((buttonSetting) => (
-                  <Column>
-                    <OptionButton
-                      text={buttonSetting.text}
-                      textStyle={OptionButtonTextStyle}
-                    />
-                  </Column>
-                ))}
-              </OptionButtons>
-              <Activities>
-                <Title>人氣活動</Title>
-                <ActivityCards>
-                  <ActivityCard />
-                  <ActivityCard />
-                  <ActivityCard />
-                  <ActivityCard />
-                  <ActivityCard />
-                </ActivityCards>
-              </Activities>
-              <Activities>
-                <Title>我的附近</Title>
-                <ActivityCards>
-                  <ActivityCard />
-                  <ActivityCard />
-                  <ActivityCard />
-                  <ActivityCard />
-                  <ActivityCard />
-                </ActivityCards>
-              </Activities>
-            </Container>
-          </Layout>
-        </Space>
-      </Background>
-    </FullScreen>
+    <Background>
+      <NavBar />
+      <SeperateBar style={SeperateBarStyle} />
+      <Space>
+        <Layout>
+          <Container>
+            <OptionButtons>
+              {buttonSettings.map((buttonSetting) => (
+                <Column>
+                  <OptionButton
+                    text={buttonSetting.text}
+                    textStyle={OptionButtonTextStyle}
+                  />
+                </Column>
+              ))}
+            </OptionButtons>
+            <Activities>
+              <Title>人氣活動</Title>
+              <ActivityCards>
+                <ActivityCard />
+                <ActivityCard />
+                <ActivityCard />
+                <ActivityCard />
+                <ActivityCard />
+                <ActivityCard />
+              </ActivityCards>
+            </Activities>
+            <Activities>
+              <Title>我的附近</Title>
+              <ActivityCards>
+                <ActivityCard />
+                <ActivityCard />
+                <ActivityCard />
+                <ActivityCard />
+                <ActivityCard />
+                <ActivityCard />
+              </ActivityCards>
+            </Activities>
+          </Container>
+        </Layout>
+      </Space>
+    </Background>
   );
 };
 
@@ -103,6 +103,8 @@ const Activities = styled.div`
 `;
 
 const Title = styled.h1`
+  color: ${textColor};
+  font-family: ${notoSans};
   margin-bottom: 24px;
 `;
 
