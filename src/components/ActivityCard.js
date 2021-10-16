@@ -8,9 +8,10 @@ import {
   blueGreen,
 } from "variable/variable";
 
-const ActivityCard = () => {
+const ActivityCard = (props) => {
+  const { className } = props;
   return (
-    <Container>
+    <Container className={className}>
       <Wrap>
         <Image src="https://www.sunmoonlake.gov.tw/image/1523/640x480" />
         <Text>永恆慕夏-線條的魔術</Text>
@@ -29,7 +30,6 @@ const ActivityCard = () => {
 export default ActivityCard;
 
 const Container = styled.section`
-  max-width: 138px;
   box-sizing: border-box;
   padding: 9px;
   box-shadow: 0px 2px 8px 0px ${shadowColor},

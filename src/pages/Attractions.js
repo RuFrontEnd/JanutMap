@@ -8,10 +8,11 @@ import {
 import FullScreen from "layouts/FullScreen";
 import Background from "layouts/Background";
 import Space from "layouts/Space";
+import Layout from "layouts/Layout";
 import NavBar from "components/NavBar";
 import SeperateBar from "components/SeperateBar";
 import JauntButton from "components/JauntButton";
-import ActivityCard from "components/ActivityCard";
+import ActivityCardRef from "components/ActivityCard";
 
 const buttonSettings = [
   { text: "全部" },
@@ -28,20 +29,40 @@ const Attractions = () => {
         <NavBar />
         <SeperateBar style={SeperateBarStyle} />
         <Space>
-          <Container>
-            <OptionButtons>
-              {buttonSettings.map((buttonSetting) => (
-                <OptionButton
-                  text={buttonSetting.text}
-                  textStyle={OptionButtonTextStyle}
-                />
-              ))}
-            </OptionButtons>
-            <ActivityCards>
-              <ActivityCard />
-              <ActivityCard />
-            </ActivityCards>
-          </Container>
+          <Layout>
+            <Container>
+              <OptionButtons>
+                {buttonSettings.map((buttonSetting) => (
+                  <Column>
+                    <OptionButton
+                      text={buttonSetting.text}
+                      textStyle={OptionButtonTextStyle}
+                    />
+                  </Column>
+                ))}
+              </OptionButtons>
+              <Activities>
+                <Title>人氣活動</Title>
+                <ActivityCards>
+                  <ActivityCard />
+                  <ActivityCard />
+                  <ActivityCard />
+                  <ActivityCard />
+                  <ActivityCard />
+                </ActivityCards>
+              </Activities>
+              <Activities>
+                <Title>我的附近</Title>
+                <ActivityCards>
+                  <ActivityCard />
+                  <ActivityCard />
+                  <ActivityCard />
+                  <ActivityCard />
+                  <ActivityCard />
+                </ActivityCards>
+              </Activities>
+            </Container>
+          </Layout>
         </Space>
       </Background>
     </FullScreen>
@@ -49,24 +70,44 @@ const Attractions = () => {
 };
 
 const Container = styled.section`
-  display: grid;
-  justify-content: center;
+  /* display: grid; */
+  /* justify-content: center; */
 `;
 
 const Wrap = styled.div`
   background-color: red;
 `;
 
-const OptionButtons = styled.div``;
+const OptionButtons = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 42px;
+`;
+
+const Column = styled.div``;
 
 const OptionButton = styled(JauntButton)`
   padding: 7.5px 38.25px;
   line-height: 21px;
   margin: 0px 6.5px;
+  /* max-width: 120px; */
 `;
 
 const ActivityCards = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+`;
+
+const Activities = styled.div`
+  margin-bottom: 90px;
+`;
+
+const Title = styled.h1`
+  margin-bottom: 24px;
+`;
+
+const ActivityCard = styled(ActivityCardRef)`
+  margin: 0px 8px;
 `;
 
 const SeperateBarStyle = {
