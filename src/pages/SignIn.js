@@ -16,7 +16,7 @@ const SignIn = (props) => {
       <Container>
         <Logo src={logo}></Logo>
         <GoogleLogin
-          clientId="402772561326-jtrfrc8doklkfoikli9h25gbmdaaf4ff.apps.googleusercontent.com"
+          clientId="402772561326-licr3gegb3qbs0ftadu2g0kaf5f0im88.apps.googleusercontent.com"
           render={(renderProps) => (
             <>
               <JauntButton
