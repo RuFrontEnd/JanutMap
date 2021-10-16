@@ -13,6 +13,7 @@ import NavBar from "components/NavBar";
 import SeperateBar from "components/SeperateBar";
 import JauntButton from "components/JauntButton";
 import ActivityCardRef from "components/ActivityCard";
+import ActivityContentCard from "components/ActivityContentCard";
 
 const buttonSettings = [
   { text: "全部" },
@@ -62,6 +63,7 @@ const Attractions = () => {
                 <ActivityCard />
               </ActivityCards>
             </Activities>
+            <ActivityContentCard></ActivityContentCard>
           </Container>
         </Layout>
       </Space>
