@@ -5,7 +5,13 @@ import { ReactComponent as CalendarRef } from "assets/calendar.svg";
 import { ReactComponent as Ticket } from "assets/ticket.svg";
 import { ReactComponent as Clock } from "assets/clock.svg";
 import { ReactComponent as Gps } from "assets/gps.svg";
-import { lightReceivingColor, shadowColor, blueGreen } from "variable/variable";
+import {
+  lightReceivingColor,
+  shadowColor,
+  blueGreen,
+  textColor,
+  optionButtonColor,
+} from "variable/variable";
 import JauntButton from "components/JauntButton";
 
 const ActivityContentCard = (props) => {
@@ -13,29 +19,33 @@ const ActivityContentCard = (props) => {
   return (
     <Container className={className}>
       <Image src={ImageTmp} />
-      <DateAndPrice>
-        <Data>
-          <Calendar />
-          2021.06.12~09.21
-        </Data>
-        <Price>
-          <Ticket />
-          $350
-        </Price>
-      </DateAndPrice>
-      <Time>
+      <Content>
+        <Calendar />
+        <Date>2021.06.12~09.21</Date>
+        <Ticket />
+        <Price>$350</Price>
+      </Content>
+      <Content>
         <Clock />
-        周一~周日10:00 ~ 18:00(最後入場時間 17:30)
-      </Time>
-      <Location>
+        <Time>周一~周日10:00 ~ 18:00(最後入場時間 17:30)</Time>
+      </Content>
+      <Content
+        style={{
+          marginBottom: "25px",
+          alignItems: "flex-start",
+        }}
+      >
         <Gps />
-        <Place>國立中正紀念堂 1展廳 (臺北市中正區中山南路21號)</Place>
+        <Place>
+          <Location>國立中正紀念堂 1展廳 </Location>
+          <Address>(臺北市中正區中山南路21號)</Address>
+        </Place>
         <MapButton
           text={"地圖"}
           style={MapButtonStyle}
           textStyle={MapButtonFontStyle}
         />
-      </Location>
+      </Content>
       <Introduction>
         曾被紐約時報譽為「世界上最偉大的裝飾藝術家」的慕夏，為20世紀新藝術代表人物之一，以女性的優美姿態結合花卉植物的繾綣曲線風靡世界，獨樹一幟的「慕夏風格」更影響後世多國的平面藝術家和設計師，更有「新藝術和現代平面設計之父」的美稱。
       </Introduction>
@@ -54,13 +64,10 @@ const Image = styled.img`
   margin: 0px auto 20px;
 `;
 
-const DateAndPrice = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+const Date = styled.div`
+  color: ${textColor};
+  margin-right: 95px;
 `;
-
-const Data = styled.div``;
 
 const Calendar = styled(CalendarRef)`
   path {
@@ -68,23 +75,28 @@ const Calendar = styled(CalendarRef)`
   }
 `;
 
-const Price = styled.div``;
+const Price = styled.div`
+  color: ${textColor};
+`;
 
 const Time = styled.div`
-  margin-bottom: 20px;
+  color: ${textColor};
 `;
 
-const Location = styled.div`
-  display: flex;
-  margin-bottom: 25px;
+const Place = styled.div`
+  color: ${optionButtonColor};
+  margin-right: 10px;
 `;
-
-const Place = styled.div``;
 
 const Introduction = styled.p`
+  color: ${optionButtonColor};
+  font-size: 14px;
+  line-height: 21px;
 `;
 
-const MapButton = styled(JauntButton)``;
+const MapButton = styled(JauntButton)`
+  align-self: flex-end;
+`;
 
 const MapButtonStyle = {
   padding: "6px 11px",
@@ -93,5 +105,19 @@ const MapButtonStyle = {
 const MapButtonFontStyle = {
   fontSize: "18px",
 };
+
+const Content = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+const Location = styled.p`
+  line-height: 24px;
+`;
+
+const Address = styled.p`
+  line-height: 24px;
+`;
 
 export default ActivityContentCard;
