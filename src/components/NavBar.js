@@ -1,22 +1,17 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { navBarColor } from "variable/variable";
+import { navBarColor, lightReceivingColor } from "variable/variable";
 import navBarLogo from "assets/navBar-logo.svg";
 import portrait from "assets/portrait.svg";
-import { ReactComponent as Search } from "assets/search.svg";
 import filter from "assets/filter.svg";
-import favorites from "assets/favorites.svg";
-import calender from "assets/calendar.svg";
-import camera from "assets/camera.svg";
-import setting from "assets/setting.svg";
+import { ReactComponent as Search } from "assets/search.svg";
+import { ReactComponent as Favorites } from "assets/favorites.svg";
+import { ReactComponent as Calendar } from "assets/calendar.svg";
+import { ReactComponent as Camera } from "assets/camera.svg";
+import { ReactComponent as Setting } from "assets/setting.svg";
 import Space from "layouts/Space";
 import JauntCircleButton from "components/JauntCircleButton";
 import SearchBar from "components/SearchBar";
-
-const NavBarStyle = {
-  backgroundColor: navBarColor,
-  opacity: 0.8,
-};
 
 const NavBar = (props) => {
   const { className } = props;
@@ -28,16 +23,24 @@ const NavBar = (props) => {
           <Tools>
             <MemberButton icon={portrait} />
             <SearchBar />
-            <FilterButton icon={filter} selected={true} />
+            <FilterButton icon={filter} isSelected={true} />
           </Tools>
           <Options>
-            <SearchButton>
-              <Search fill="red" />
+            <SearchButton isSelected={true}>
+              <Search isSelected={true} />
             </SearchButton>
-            <FavButton icon={favorites} />
-            <CalenderButton icon={calender} />
-            <CameraButton icon={camera} />
-            <SettingButton icon={setting} />
+            <FavButton>
+              <Favorites />
+            </FavButton>
+            <CalenderButton>
+              <Calendar />
+            </CalenderButton>
+            <CameraButton>
+              <Camera />
+            </CameraButton>
+            <SettingButton>
+              <Setting />
+            </SettingButton>
           </Options>
         </Wrap>
       </Container>
@@ -77,24 +80,23 @@ const Options = styled.div`
   align-items: center;
 `;
 
-const SearchButton = styled(JauntCircleButton)`
+const JauntCircleButtonStyleComponent = styled(JauntCircleButton)`
   margin: 0px 6px;
 `;
 
-const FavButton = styled(JauntCircleButton)`
-  margin: 0px 6px;
-`;
+const SearchButton = styled(JauntCircleButtonStyleComponent)``;
 
-const CalenderButton = styled(JauntCircleButton)`
-  margin: 0px 6px;
-`;
+const FavButton = styled(JauntCircleButtonStyleComponent)``;
 
-const CameraButton = styled(JauntCircleButton)`
-  margin: 0px 6px;
-`;
+const CalenderButton = styled(JauntCircleButtonStyleComponent)``;
 
-const SettingButton = styled(JauntCircleButton)`
-  margin: 0px 6px;
-`;
+const CameraButton = styled(JauntCircleButtonStyleComponent)``;
+
+const SettingButton = styled(JauntCircleButtonStyleComponent)``;
+
+const NavBarStyle = {
+  backgroundColor: navBarColor,
+  opacity: 0.8,
+};
 
 export default NavBar;

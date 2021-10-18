@@ -9,27 +9,6 @@ import {
 } from "variable/variable";
 import Radium from "radium";
 
-const ContainerStyledComponent = styled.button`
-  background: ${(props) => (props.selected ? selectedColor : shallowMainColor)};
-  box-shadow: ${(props) =>
-    props.selected
-      ? selectedShadowColor
-      : `-2px -2px 1px ${lightReceivingColor}, 0px 0px 5px ${shadowColor}`};
-  border-radius: 50%;
-  cursor: pointer;
-  padding: 10px;
-`;
-
-const Container = Radium(ContainerStyledComponent);
-
-const Wrap = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Icon = styled.img``;
-
 const JauntCircleButton = (props) => {
   const {
     className,
@@ -37,7 +16,7 @@ const JauntCircleButton = (props) => {
     style,
     sharpRadius = true,
     onClick,
-    selected,
+    isSelected,
     children,
   } = props;
 
@@ -47,14 +26,38 @@ const JauntCircleButton = (props) => {
       style={style}
       sharpRadius={sharpRadius}
       onClick={onClick}
-      selected={selected}
+      isSelected={isSelected}
     >
       <Wrap>
-        {icon && <Icon src={icon} />}
+        {/* {icon && <Icon src={icon} isSelected={isSelected} />} */}
         {children}
       </Wrap>
     </Container>
   );
 };
+
+const ContainerStyledComponent = styled.button`
+  background: ${(props) =>
+    props.isSelected ? selectedColor : shallowMainColor};
+  box-shadow: ${(props) =>
+    props.isSelected
+      ? selectedShadowColor
+      : `-2px -2px 1px ${lightReceivingColor}, 0px 0px 5px ${shadowColor}`};
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 10px;
+
+  svg path {
+    fill: ${(props) => props.isSelected && lightReceivingColor};
+  }
+`;
+
+const Container = Radium(ContainerStyledComponent);
+
+const Wrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 export default JauntCircleButton;

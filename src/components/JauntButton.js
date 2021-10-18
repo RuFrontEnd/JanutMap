@@ -6,6 +6,7 @@ import {
   shadowColor,
   textColor,
   notoSans,
+  selectedColor,
 } from "variable/variable";
 import Radium from "radium";
 
@@ -19,6 +20,7 @@ const JauntButton = (props) => {
     text = "text",
     onClick,
     disabled,
+    isSelected,
   } = props;
 
   return (
@@ -28,17 +30,21 @@ const JauntButton = (props) => {
       sharpRadius={sharpRadius}
       onClick={onClick}
       disabled={disabled}
+      isSelected={isSelected}
     >
       <Wrap>
         {icon && <Icon src={icon} />}
-        <Text style={textStyle}>{text}</Text>
+        <Text style={textStyle} isSelected={isSelected}>
+          {text}
+        </Text>
       </Wrap>
     </Container>
   );
 };
 
 const ContainerStyledComponent = styled.button`
-  background: ${shallowMainColor};
+  background: ${(props) =>
+    props.isSelected ? selectedColor : shallowMainColor};
   box-shadow: 0px 2px 8px 0px ${shadowColor},
     -3px -2px 2px 0px ${lightReceivingColor};
   border-radius: ${(props) => (props.sharpRadius ? "8px" : "10px")};
@@ -57,7 +63,7 @@ const Icon = styled.img`
   margin-right: 10px;
 `;
 const TextStyledComponent = styled.p`
-  color: ${(props) => (props.color ? props.color : textColor)};
+  color: ${(props) => (props.isSelected ? lightReceivingColor : textColor)};
   font-family: ${notoSans};
   font-size: 20px;
   font-weight: 400;

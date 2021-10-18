@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 import {
-  placeholderColor,
+  lightReceivingColor,
   optionButtonColor,
   textColor,
   notoSans,
@@ -17,11 +17,11 @@ import ActivityContentCard from "components/ActivityContentCard";
 import PopulationTag from "components/PopulationTag";
 
 const buttonSettings = [
-  { text: "全部" },
-  { text: "藝文" },
-  { text: "古蹟" },
-  { text: "免費" },
-  { text: "收費" },
+  { text: "全部", isSelected: true },
+  { text: "藝文", isSelected: false },
+  { text: "古蹟", isSelected: false },
+  { text: "免費", isSelected: false },
+  { text: "收費", isSelected: false },
 ];
 
 const Attractions = () => {
@@ -37,7 +37,10 @@ const Attractions = () => {
                 <Column>
                   <OptionButton
                     text={buttonSetting.text}
-                    textStyle={OptionButtonTextStyle}
+                    textStyle={getOptionButtonTextStyle(
+                      buttonSetting.isSelected
+                    )}
+                    isSelected={buttonSetting.isSelected}
                   />
                 </Column>
               ))}
@@ -120,10 +123,12 @@ const SeperateBarStyle = {
   marginBottom: "38px",
 };
 
-const OptionButtonTextStyle = {
-  fontSize: "14px",
-  fontFamily: `${notoSans}`,
-  color: optionButtonColor,
+const getOptionButtonTextStyle = (isSelected) => {
+  return {
+    fontSize: "14px",
+    fontFamily: `${notoSans}`,
+    color: isSelected ? lightReceivingColor : optionButtonColor,
+  };
 };
 
 export default Attractions;
