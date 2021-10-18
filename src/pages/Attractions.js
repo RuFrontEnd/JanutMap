@@ -36,6 +36,7 @@ const Attractions = () => {
               {buttonSettings.map((buttonSetting) => (
                 <Column>
                   <OptionButton
+                    key={buttonSetting.text}
                     text={buttonSetting.text}
                     textStyle={getOptionButtonTextStyle(
                       buttonSetting.isSelected

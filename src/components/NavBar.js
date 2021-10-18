@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components/macro";
 import { navBarColor, lightReceivingColor } from "variable/variable";
 import navBarLogo from "assets/navBar-logo.svg";
-import portrait from "assets/portrait.svg";
-import filter from "assets/filter.svg";
+import { ReactComponent as Portrait } from "assets/portrait.svg";
+import { ReactComponent as Filter } from "assets/filter.svg";
 import { ReactComponent as Search } from "assets/search.svg";
 import { ReactComponent as Favorites } from "assets/favorites.svg";
 import { ReactComponent as Calendar } from "assets/calendar.svg";
@@ -21,9 +21,13 @@ const NavBar = (props) => {
         <Wrap>
           <Logo src={navBarLogo} />
           <Tools>
-            <MemberButton icon={portrait} />
+            <MemberButton>
+              <Portrait />
+            </MemberButton>
             <SearchBar />
-            <FilterButton icon={filter} isSelected={true} />
+            <FilterButton isSelected={true}>
+              <Filter />
+            </FilterButton>
           </Tools>
           <Options>
             <SearchButton isSelected={true}>
