@@ -11,6 +11,7 @@ import {
   blueGreen,
   textColor,
   optionButtonColor,
+  shallowMainColor
 } from "variable/variable";
 import JauntButton from "components/JauntButton";
 
@@ -57,6 +58,7 @@ const Container = styled.section`
   width: 500px;
   padding: 32px 32px 64px 32px;
   box-shadow: -3px -2px 2px ${lightReceivingColor}, 0px 2px 8px ${shadowColor};
+  background-color: ${shallowMainColor};
 `;
 
 const Image = styled.img`

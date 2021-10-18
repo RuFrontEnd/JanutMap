@@ -14,6 +14,7 @@ import SeperateBar from "components/SeperateBar";
 import JauntButton from "components/JauntButton";
 import ActivityCardRef from "components/ActivityCard";
 import ActivityContentCard from "components/ActivityContentCard";
+import PopulationTag from "components/PopulationTag";
 
 const buttonSettings = [
   { text: "全部" },
@@ -63,7 +64,8 @@ const Attractions = () => {
                 <ActivityCard />
               </ActivityCards>
             </Activities>
-            <ActivityContentCard></ActivityContentCard>
+            <PopulationTag />
+            <ActivityContentCard />
           </Container>
         </Layout>
       </Space>
