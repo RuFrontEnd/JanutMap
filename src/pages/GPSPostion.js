@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components/macro";
 import { withRouter } from "react-router-dom";
 import lottie from "lottie-web";
@@ -6,10 +6,12 @@ import { placeholderColor, notoSans } from "variable/variable";
 import Background from "layouts/Background";
 import JauntButton from "components/JauntButton";
 import mapAnimation from "assets/map_animation.json";
+import { getLocation } from "utils/location";
 
 const GPSPostion = (props) => {
   const { history } = props;
   const $Lottie = useRef();
+  const [postion, setPostion] = useState({});
 
   useEffect(() => {
     lottie.loadAnimation({
@@ -21,18 +23,24 @@ const GPSPostion = (props) => {
     });
   }, []);
 
+  useEffect(() => {
+    console.log("postion", postion);
+  }, [postion]);
+
   return (
     <Background>
       <Container>
         <Lottie ref={$Lottie} />
-        <Hint> 請開啟定位，才能使用小旅行， 享有完整的使用體驗</Hint>
+        <Hint>請開啟定位，才能使用小旅行， 享有完整的使用體驗</Hint>
         <JauntButton
           text={"開啟定位"}
           style={getLocationButtonStyle}
           sharpRadius={false}
           textStyle={getLocationButtonTextStyle}
           onClick={() => {
-            history.push("/attractions");
+            getLocation(setPostion);
+            // getLocation()
+            // history.push("/attractions");
           }}
         />
       </Container>
