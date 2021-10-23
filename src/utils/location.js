@@ -8,12 +8,9 @@ export const getLocation = (handleLocation) =>
       const _latitude = fixNumber(position.coords.latitude, 1);
       const _longitude = fixNumber(position.coords.longitude, 1);
       const _resolve = {
-        latitude: _latitude,
         longitude: _longitude,
+        latitude: _latitude,
       };
       resolve(_resolve);
     });
-  }).then((res) => {
-    const location = deepClone(res);
-    handleLocation(location);
-  });
+  }).then((res) => handleLocation(res));
