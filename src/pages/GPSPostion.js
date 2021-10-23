@@ -39,7 +39,6 @@ const GPSPostion = (props) => {
           textStyle={getLocationButtonTextStyle}
           onClick={() => {
             getLocation(setPostion);
-            // getLocation()
             // history.push("/attractions");
           }}
         />
