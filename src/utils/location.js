@@ -1,5 +1,4 @@
 import { fixNumber } from "utils/number";
-import { deepClone } from "utils/clone";
 
 export const getLocation = (handleLocation) =>
   new Promise((resolve) => {
