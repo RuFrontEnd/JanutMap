@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
 import {
   lightReceivingColor,
@@ -6,6 +6,7 @@ import {
   textColor,
   notoSans,
 } from "variable/variable";
+import { withRouter } from "react-router-dom";
 import { fetchData } from "utils/data";
 import Background from "layouts/Background";
 import Space from "layouts/Space";
@@ -16,7 +17,6 @@ import JauntButton from "components/JauntButton";
 import ActivityCardRef from "components/ActivityCard";
 import ActivityContentCard from "components/ActivityContentCard";
 import PopulationTag from "components/PopulationTag";
-import { setAxiosDefaultURL } from "utils/data";
 
 const buttonSettings = [
   { text: "全部", isSelected: true },
@@ -26,10 +26,24 @@ const buttonSettings = [
   { text: "收費", isSelected: false },
 ];
 
-// setAxiosDefaultURL("https://swin-opendata.herokuapp.com/api/v1/data/");
+const Attractions = (props) => {
+  const { location } = props;
+  const { longitude, latitude } = location.state.position;
+  const [activities, setActivities] = useState([]);
 
-const Attractions = () => {
-  // fetchData("post", "activity").then((data) => console.log("data", data));
+  useEffect(() => {
+    fetchData(
+      "post",
+      "activity",
+      { px: longitude, py: latitude, range: 5 },
+      setActivities
+    );
+  }, []);
+
+  useEffect(() => {
+    console.log("activities", activities);
+  }, [activities]);
+
   return (
     <Background>
       <NavBar />
@@ -137,4 +151,4 @@ const getOptionButtonTextStyle = (isSelected) => {
   };
 };
 
-export default Attractions;
+export default withRouter(Attractions);

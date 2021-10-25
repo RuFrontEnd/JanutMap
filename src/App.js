@@ -7,12 +7,14 @@ import {
   setCurrentUser,
   setCurrentUserData,
 } from "redux/member/memberActions"; // 判斷是否 login 的狀態
-
+import { setAxiosDefaultURL } from "utils/data";
 // import Navbar from "components/navBar/NavBar";
 // import Footer from "components/footer/Footer";
 import SignIn from "pages/SignIn";
 import GPSPostion from "pages/GPSPostion";
 import Attractions from "pages/Attractions";
+
+setAxiosDefaultURL("https://swin-opendata.herokuapp.com/api/v1/data/");
 
 const routes = [
   {

@@ -11,7 +11,7 @@ import { getLocation } from "utils/location";
 const GPSPostion = (props) => {
   const { history } = props;
   const $Lottie = useRef();
-  const [postion, setPostion] = useState({});
+  const [position, setPosition] = useState({});
 
   useEffect(() => {
     lottie.loadAnimation({
@@ -24,8 +24,13 @@ const GPSPostion = (props) => {
   }, []);
 
   useEffect(() => {
-    console.log("postion", postion);
-  }, [postion]);
+    if (JSON.stringify(position) !== "{}") {
+      history.push({
+        pathname: "/attractions",
+        state: { position },
+      });
+    }
+  }, [position]);
 
   return (
     <Background>
@@ -37,10 +42,7 @@ const GPSPostion = (props) => {
           style={getLocationButtonStyle}
           sharpRadius={false}
           textStyle={getLocationButtonTextStyle}
-          onClick={() => {
-            getLocation(setPostion);
-            // history.push("/attractions");
-          }}
+          onClick={() => getLocation(setPosition)}
         />
       </Container>
     </Background>
