@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import styled from "styled-components/macro";
 import {
   lightReceivingColor,
@@ -7,7 +8,6 @@ import {
   notoSans,
 } from "variable/variable";
 import { withRouter } from "react-router-dom";
-import { fetchData } from "utils/data";
 import Background from "layouts/Background";
 import Space from "layouts/Space";
 import Layout from "layouts/Layout";
@@ -32,12 +32,9 @@ const Attractions = (props) => {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
-    fetchData(
-      "post",
-      "activity",
-      { px: longitude, py: latitude, range: 5 },
-      setActivities
-    );
+    axios
+      .post("activity", { px: longitude, py: latitude, range: 5 })
+      .then((res) => setActivities(res.data));
   }, []);
 
   useEffect(() => {
